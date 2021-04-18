@@ -10,7 +10,7 @@ Add the following dependencies in `build.gradle`
 ```
 dependencies {
 ...
-    compile 'org.grails.plugins:spring-security-oauth2:1.+'
+    compile 'org.grails.plugins:spring-security-oauth2:3.1.2'
     compile 'org.grails.plugins:spring-security-oauth2-twitter:1.0.+'
 ...
 }
