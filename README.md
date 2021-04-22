@@ -10,8 +10,8 @@ Add the following dependencies in `build.gradle`
 ```
 dependencies {
 ...
-    compile 'org.grails.plugins:spring-security-oauth2:1.2.0-patch-scribejava-8.3.0'
-    compile 'org.grails.plugins:spring-security-oauth2-twitter:1.0.0'
+    compile 'es.osoco:spring-security-oauth2:1.2.0-patch-scribejava-8.3.0'
+    compile 'es.osoco:spring-security-oauth2-twitter:1.0.0'
 ...
 }
 ```
