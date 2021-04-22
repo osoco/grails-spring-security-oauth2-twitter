@@ -1,6 +1,11 @@
-package spring.security.oauth2.twitter
+package grails.plugin.springsecurity.oauth2.twitter
 
-import grails.plugins.*
+import grails.plugin.springsecurity.ReflectionUtils
+import grails.plugin.springsecurity.SpringSecurityUtils
+import grails.plugin.springsecurity.oauth2.SpringSecurityOauth2BaseService
+import grails.plugin.springsecurity.oauth2.exception.OAuth2Exception
+import grails.plugins.Plugin
+import org.slf4j.LoggerFactory
 
 class SpringSecurityOauth2TwitterGrailsPlugin extends Plugin {
 
@@ -79,11 +84,14 @@ This plugin provides the capability to authenticate via Twitter OAuth1 provider 
 
     void doWithApplicationContext() {
         log.trace("doWithApplicationContext")
+        println("doWithApplicationContext")
         def SpringSecurityOauth2BaseService oAuth2BaseService = grailsApplication.mainContext.getBean('springSecurityOauth2BaseService') as SpringSecurityOauth2BaseService
         def TwitterOAuth2Service twitterOAuth2Service = grailsApplication.mainContext.getBean('twitterOAuth2Service') as TwitterOAuth2Service
         try {
+            println "registering ${twitterOAuth2Service}..."
             oAuth2BaseService.registerProvider(twitterOAuth2Service)
-        } catch (OAuth2Exception exception) {
+        } catch (Exception exception) {
+            println "There was an oAuth2Exception ${exception}"
             log.error("There was an oAuth2Exception", exception)
             log.error("OAuth2 Twitter not loaded")
         }

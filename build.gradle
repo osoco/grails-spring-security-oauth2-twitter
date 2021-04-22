@@ -12,15 +12,13 @@ buildscript {
     }
 }
 
-version "1.0.0"
-group "es.osoco"
+version '1.0.0'
+group 'es.osoco'
 
-apply plugin:"eclipse"
-apply plugin:"idea"
+apply plugin: 'maven-publish'
 apply plugin:"org.grails.grails-plugin"
 apply plugin:"org.grails.grails-gsp"
 apply plugin:"asset-pipeline"
-apply plugin:"maven-publish"
 
 ext {
     grailsVersion = project.grailsVersion
@@ -45,7 +43,7 @@ dependencies {
     compile "org.grails:grails-core"
     compile "org.springframework.boot:spring-boot-starter-actuator"
     compile "org.springframework.boot:spring-boot-starter-tomcat"
-    compile "org.grails:grails-dependencies"
+    compile "org.grails:grails-dependencies:3.1.10"
     compile "org.grails:grails-web-boot"
     compile "org.grails.plugins:cache"
     compile "org.grails.plugins:scaffolding"
@@ -54,7 +52,7 @@ dependencies {
     provided "org.grails:grails-plugin-services"
     provided "org.grails:grails-plugin-domain-class"
     provided 'org.grails.plugins:spring-security-core:3.1.2'
-    provided 'org.grails.plugins:spring-security-oauth2:1.2.0'
+    provided 'org.grails.plugins:spring-security-oauth2:1.2.0-patch-scribejava-8.3.0'
     runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.8.2"
     testCompile "org.grails:grails-plugin-testing"
     testCompile "org.grails.plugins:geb"
@@ -86,7 +84,7 @@ publishing {
            from components.java
            artifact sourcesJar
            artifact javadocJar
-
+/*
            pom {
                name = 'Spring Security OAuth2 Twitter for Grails plugin'
                description = 'This plugin provides the capability to authenticate via Twitter OAuth provider for Grails 3.0 to 3.2 applications. Depends on grails-spring-security-oauth2.'
@@ -110,9 +108,11 @@ publishing {
                    url = 'https://github.com/osoco/grails-spring-security-oauth2-twitter/tree/main'
                }
            }
+           */
        }
    }
 }
+
 assets {
     packagePlugin = true
 }
